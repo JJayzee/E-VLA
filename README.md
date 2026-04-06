@@ -6,6 +6,10 @@ This is the official repository for **E-VLA**, a framework that integrates event
 
 ## 🎥 Video Demo
 
+
+https://github.com/user-attachments/assets/937e8a7d-80f2-473d-9c40-4e3810e36c87
+
+
 > **Highlights:** E-VLA maintains high success rates in extreme low-light (20 lux) and severe motion blur scenarios where conventional frame-based VLA models typically fail.
 
 ---
