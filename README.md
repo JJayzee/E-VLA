@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/937e8a7d-80f2-473d-9c40-4e3810e36c87
 
 ## 🛠️ Code and Dataset
 
-The paper is currently **under review**. The codebase and the real-world RGB-Event-Action dataset will be made available in this repository as the project progresses. 
+The codebase and the real-world RGB-Event-Action dataset will be made available in this repository as the project progresses. 
 
 ---
 
