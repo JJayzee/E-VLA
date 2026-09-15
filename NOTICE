@@ -1,0 +1,11 @@
+evla
+Copyright 2026 Jiajun Zhai. All rights reserved.
+
+evla is based on and contains modified portions of LeRobot:
+
+  LeRobot
+  Copyright 2024 The Hugging Face team. All rights reserved.
+  https://github.com/huggingface/lerobot
+
+LeRobot and the modified evla code are distributed under the Apache
+License, Version 2.0. See the LICENSE file included with this distribution.
