@@ -1,0 +1,117 @@
+# Copyright 2024 The HuggingFace Inc. team. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+[project]
+name = "evla"
+version = "0.1.0"
+description = "Image-only evla research code developed from Hugging Face LeRobot"
+authors = [{ name = "Jiajun Zhai", email = "jiajunzhai@zju.edu.cn" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10,<3.11"
+keywords = ["robotics", "deep learning", "pytorch", "vision-language-action", "low-light vision"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+
+    # Hugging Face dependencies
+    "datasets>=2.19.0,<=3.6.0",
+    "huggingface-hub>=0.34.2,<1.0",
+
+    # Core dependencies
+    "numpy>=1.24.0,<3.0.0",
+    "pandas>=2.2.2,<3.0.0",
+    "Pillow>=9.4.0,<13.0.0",
+    "pyarrow>=15.0.0,<26.0.0",
+    "tqdm>=4.66.3,<5.0.0",
+    "opencv-python-headless>=4.9.0,<5.0.0",
+    "av>=12.0.5,<16.0.0",
+    "jsonlines>=4.0.0,<5.0.0",
+    "packaging>=24.2,<26.0",
+    "wandb>=0.16.3,<1.0.0",
+
+    "torch>=2.2.1,<2.8.0",
+    "torchvision>=0.21.0,<0.23.0",
+    "draccus==0.10.0",
+    "rerun-sdk>=0.21.0,<0.23.0",
+
+    # Support dependencies
+    "deepdiff>=7.0.1,<9.0.0",
+    "termcolor>=2.4.0,<4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/JJayzee/E-VLA"
+Repository = "https://github.com/JJayzee/E-VLA"
+"Upstream LeRobot" = "https://github.com/huggingface/lerobot"
+
+[project.optional-dependencies]
+
+# Common
+transformers-dep = ["transformers>=4.50.3,<4.52.0"]
+
+# Development
+dev = ["pytest>=8.1.0,<9.0.0", "ruff>=0.14.0,<0.15.0"]
+
+# Robots
+intelrealsense = ["pyrealsense2>=2.55.1.6486,<2.57.0 ; sys_platform != 'darwin'"]
+davis = ["dv-processing==1.7.9"]
+# Motors
+feetech = ["feetech-servo-sdk>=1.0.0,<2.0.0", "pyserial>=3.5,<4.0", "pynput>=1.7.8,<1.9.0"]
+
+# Policies
+smolvla = ["evla[transformers-dep]", "num2words>=0.5.14,<0.6.0", "accelerate>=1.7.0,<2.0.0", "safetensors>=0.4.3,<1.0.0"]
+
+# ---------------- Tool Configurations ----------------
+
+[tool.poetry]
+requires-poetry = ">=2.1"
+packages = [{ include = "lerobot" }]
+include = ["NOTICE"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "N", "B", "C4", "SIM"]
+
+[tool.bandit]
+exclude_dirs = ["lerobot/datasets/push_dataset_to_hub", "lerobot/datasets/v2"]
+skips = ["B101", "B311", "B404", "B603"]
+
+[tool.typos]
+default.extend-ignore-re = [
+    "(?Rm)^.*(#|//)\\s*spellchecker:disable-line$",                      # spellchecker:disable-line
+    "(?s)(#|//)\\s*spellchecker:off.*?\\n\\s*(#|//)\\s*spellchecker:on", # spellchecker:<on|off>
+]
+default.extend-ignore-identifiers-re = [
+    # Add individual words here to ignore them
+    "2nd",
+    "pn",
+    "ser",
+    "ein",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

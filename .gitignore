@@ -186,7 +186,8 @@ cython_debug/
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #  and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
+.codex/
 
 # Ruff stuff:
 .ruff_cache/
@@ -194,14 +195,24 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Cursor
-#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
-#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
-#  refer to https://docs.cursor.com/context/ignore-files
-.cursorignore
-.cursorindexingignore
-
 # Marimo
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# outputs
+outputs/
+logs/
+event_visual/
+final_outputs/
+final_logs/
+final_results/
+valid_log.txt
+calib_results/
+pretrained/
+onnx_out/
+trt_out/
+/dataset_task_light_raw/
